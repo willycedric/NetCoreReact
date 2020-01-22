@@ -9,6 +9,7 @@ namespace Persistance
     {
         public static void SeedData(DataContext context)
         {
+            //Seeding the Activity table
             if(!context.Activities.Any())
             {
                 var activities = new List<Activity>
@@ -107,6 +108,44 @@ namespace Persistance
 
                 context.Activities.AddRange(activities);
                 context.SaveChanges();
+            }
+
+            //Seeding the Post table
+            if(!context.Posts.Any()){
+
+                    var posts = new List<Post>()
+                    {
+                        new Post {
+                            Author = "Martin Dupuis",
+                            Tilte = "Resolve issues with github"
+                        }, 
+                        new Post{
+                            Author = "Panisilva Djarta",
+                            Tilte = "StackOverflow overflow"
+                        },
+                        new Post {
+                            Author = "Mad coder",
+                            Tilte = "have a balance diet event when we are inspired"
+                        },
+                        new Post{
+                            Author = "Pricilia Janet",
+                            Tilte = "Empowering woman in tech"
+                        },
+                        new Post{
+                            Author = "Jean Mukuam",
+                            Tilte = "How software could help a country to develop his economu"
+                        },
+                        new Post{
+                            Author = "Pascral Monji",
+                            Tilte = "What if the Wakanda really exist"
+                        },
+                        new Post{
+                            Author = "Lorine Pattyet",
+                            Tilte = "How to manage long distance relation ship and entrepreneurship"
+                        }
+                    };
+                    context.Posts.AddRange(posts);
+                    context.SaveChanges();
             }
         }
     }
